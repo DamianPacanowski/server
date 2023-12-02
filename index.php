@@ -39,34 +39,7 @@
 	}
 	else
 	{
-		echo
-			'<style>
-				.blokada_pole
-				{
-					position:fixed;
-					top:0;
-					left:0;
-					right:0;
-					bottom:0;
-				}
-				.blokada_pole .blokada_pole_info
-				{
-					margin: 50px;
-					color:rgb(255,0,0);
-				}
-			</style>
-			<div class="blokada_pole">
-				<div class="blokada_pole_info">
-					BLOKADA DOSTĘPU
-					<br />
-					'.getenv("REMOTE_ADDR").'
-					<br />
-					ABY ODBLOKOWAĆ 
-					<br />
-					SKONTAKUJ SIĘ Z OBSŁUGĄ KLIENTA
-				</div>
-			</div>'
-		;
+		header('location:/');
 	}
 	
 ?>
