@@ -14,7 +14,7 @@
 		}
 		if(isset($_SERVER_NAME_ARRAY))
 		{
-			foreach($_SERVER_NAME_ARRAY AS $_SERVER_NAME_FILE)
+			foreach($_SERVER_NAME_ARRAY as $_SERVER_NAME_FILE)
 			{
 				include_once($_SERVER_NAME_FILE);
 			}
@@ -35,7 +35,7 @@
 				}
 				if(isset($_SERVER_VALUE_ARRAY))
 				{
-					foreach($_SERVER_VALUE_ARRAY AS $_SERVER_VALUE_FILE)
+					foreach($_SERVER_VALUE_ARRAY as $_SERVER_VALUE_FILE)
 					{
 						include_once($_SERVER_VALUE_FILE);
 					}
