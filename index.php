@@ -17,7 +17,6 @@
 			foreach($_SERVER_NAME_ARRAY AS $_SERVER_NAME_FILE)
 			{
 				include_once($_SERVER_NAME_FILE);
-				//var_dump($_SERVER_NAME_FILE);
 			}
 		}
 		if((isset($HTTP_USER_AGENT))&&(isset($REMOTE_ADDR)))
