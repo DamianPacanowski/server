@@ -43,22 +43,6 @@
 	}
 	
 ?>
-<!DOCTYPE html>	
-<html>
-<head><?php if(isset($head)){echo$head;}?></head>
-<body><?php if(isset($body)){echo$body;}?></body>
-<footer><?php if(isset($footer)){echo$footer;}?></footer>
-</html>	
-<?php	
-	if(isset($_kto))
-	{
-		if($_kto===$kto_serv)
-		{
-			echo'<script src="/blockchain_admin.js"></script>';
-		}
-		echo'<script src="/blockchain_klient.js"></script>';
-	}
-?>
 
 
 
