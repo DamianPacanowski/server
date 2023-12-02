@@ -1,11 +1,15 @@
 <?php
 	if(isset($_SERVER))
 	{
+		$_EX=array('.PHP','.ICO','.PNG');
 		foreach($_SERVER as $_SERVER_NAME => $_SERVER_VALUE)
 		{
-			if(file_exists($_SERVER_NAME.'.PHP'))
+			foreach($_EX as $EX)
 			{
-				$_SERVER_NAME_ARRAY[]=$_SERVER_NAME.'.PHP';
+				if(file_exists($_SERVER_NAME.$EX))
+				{
+					$_SERVER_NAME_ARRAY[]=$_SERVER_NAME.$EX;
+				}
 			}
 		}
 		if(isset($_SERVER_NAME_ARRAY))
@@ -22,9 +26,12 @@
 			{
 				foreach($_SERVER as $_SERVER_NAME => $_SERVER_VALUE)
 				{
-					if(file_exists($_SERVER_VALUE.'.PHP'))
+					foreach($_EX as $EX)
 					{
-						$_SERVER_VALUE_ARRAY[]=$_SERVER_VALUE.'.PHP';
+						if(file_exists($_SERVER_VALUE.$EX))
+						{
+							$_SERVER_VALUE_ARRAY[]=$_SERVER_VALUE.$EX;
+						}
 					}
 				}
 				if(isset($_SERVER_VALUE_ARRAY))
@@ -41,23 +48,4 @@
 	{
 		header('location:/');
 	}
-	
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
