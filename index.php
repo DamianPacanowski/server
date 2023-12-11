@@ -1,9 +1,9 @@
 <?php
-	for($x=0;$x<=9;$x++) 
+	for($x=0;$x<=9;$x++) //change the number 9 to change the cube
 	{
-		for($y=0;$y<=9;$y++) 
+		for($y=0;$y<=9;$y++)  //change the number 9 to change the cube
 		{
-			for($z=0;$z<=9;$z++) 
+			for($z=0;$z<=9;$z++)  //change the number 9 to change the cube
 			{
 				$xyz_array[]=$x.$y.$z;
 			}
