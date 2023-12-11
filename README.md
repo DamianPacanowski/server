@@ -7,3 +7,4 @@ digital reading table start
 # 0/0/0
 digital reading table end
 # 9/9/9 
+you can change the reading table in the code
